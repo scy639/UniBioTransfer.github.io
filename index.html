@@ -63,6 +63,7 @@
   <meta name="theme-color" content="#2563eb">
   <meta name="msapplication-TileColor" content="#2563eb">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   
   <!-- Preconnect for performance -->
@@ -87,14 +88,14 @@
   <!-- Non-critical CSS - Load asynchronously -->
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   
   <!-- Fallback for browsers that don't support preload -->
   <noscript>
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
   
@@ -104,7 +105,6 @@
   <!-- Defer non-critical JavaScript -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
@@ -250,13 +250,13 @@
               <span class="author-block">Yiming Ren,</span>
               <span class="author-block">Jiamin Wang,</span>
               <span class="author-block">Yuexin Ma,</span>
-              <span class="author-block">Siu-Ming Yiu<sup>†</sup></span>
+              <span class="author-block">Siu-Ming Yiu<sup>&dagger;</sup></span>
             </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">The University of Hong Kong · Digital Trust Centre, Nanyang Technological University · ShanghaiTech University</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution · <sup>†</sup>Corresponding Author</small></span>
-                  </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">ShanghaiTech University &middot; The University of Hong Kong &middot; Digital Trust Centre, Nanyang Technological University</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution &middot; <sup>&dagger;</sup>Corresponding Author</small></span>
+            </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
@@ -293,7 +293,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <figure class="image">
-        <img src="static/images/teaser_v10_fix.pdf" alt="UniBioTransfer teaser figure">
+        <img src="static/images/teaser_v10_fix.png" alt="UniBioTransfer teaser figure" loading="lazy">
       </figure>
       <h2 class="subtitle has-text-centered">
         UniBioTransfer is the first unified framework capable of handling all four complicated and typical high-level and mid-level deepface generation tasks within the same model, while also generalizing efficiently to novel low-level and cross-level/intra-level compositional transfer tasks by conducting minimal fine-tuning with &lt;20% data and &lt;10% training cost. (Blue border: target image, orange border: reference images, green borders: transferred results.)
@@ -326,7 +326,12 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Visual Results</h2>
-    <p class="content">PLACE_holder</p>
+    <figure class="image">
+      <img src="static/images/mainComp-v1.png" alt="Visual comparisons on diverse deepface tasks" loading="lazy">
+    </figure>
+    <p class="has-text-centered is-size-6">
+      Visual Comparisons on diverse deepface tasks. More results in Suppl.
+    </p>
   </div>
 </section>
 
@@ -334,7 +339,19 @@
 <section class="section is-light">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Method (Brief)</h2>
-    <p class="content">PLACE_holder</p>
+    <figure class="image">
+      <img src="static/images/dataCorruption-v3.png" alt="Unified data corruption strategy" loading="lazy">
+    </figure>
+    <p class="has-text-centered is-size-6">
+      Our unified data corruption strategy for different attribute types. (a) Relative-static attributes: the target is constructed by simple masking or data augmentation of the GT image. (b) Spatially-dynamic attributes: we utilize our swapping-based corruption strategy, which employs an off-the-shelf generative model to replace specific attributes in the GT with arbitrary novel variations, preventing shape leakage from mask boundaries.
+    </p>
+
+    <figure class="image" style="margin-top: 1.5rem;">
+      <img src="static/images/model_v5.png" alt="UniBioTransfer architecture overview" loading="lazy">
+    </figure>
+    <p class="has-text-centered is-size-6">
+      UniBioTransfer architecture overview. (a) Overall framework. (b) We introduce an MoE-enhanced Feed Forward Network (FFN). (c) Expert selection is guided by a Structure-Aware Router. (d) The entire system is optimized using a two-stage training strategy designed to stabilize routing and promote expert specialization.
+    </p>
   </div>
 </section>
 
@@ -342,7 +359,15 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">More Visualizations (Supplementary)</h2>
-    <p class="content">PLACE_holder</p>
+    <figure class="image">
+      <img src="static/images/compare-t0.png" alt="Face transfer visual comparison" loading="lazy">
+    </figure>
+    <p class="has-text-centered is-size-6">Face transfer visual comparison.</p>
+
+    <figure class="image" style="margin-top: 1.5rem;">
+      <img src="static/images/compare-t1.png" alt="Hair transfer visual comparison" loading="lazy">
+    </figure>
+    <p class="has-text-centered is-size-6">Hair transfer visual comparison.</p>
   </div>
 </section>
 
