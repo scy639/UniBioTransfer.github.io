@@ -249,7 +249,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <figure class="image">
-        <img src="static/images/teaser_V10_fix.jpg" alt="UniBioTransfer teaser figure" loading="lazy">
+        <img src="static/images/teaser_V10_fix.jpg" alt="UniBioTransfer teaser figure" loading="lazy" class="zoomable">
       </figure>
       <p class="has-text-centered">
       The first unified framework capable of handling all four complicated and typical high-level and mid-level deepface generation tasks within the same model, while also generalizing efficiently to novel low-level and cross-level/intra-level compositional transfer tasks via minimal fine-tuning.
@@ -285,7 +285,7 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">Visual Results</h2>
     <figure class="image">
-      <img src="static/images/mainComp.jpg" alt="Visual comparisons on diverse deepface tasks" loading="lazy">
+      <img src="static/images/mainComp.jpg" alt="Visual comparisons on diverse deepface tasks" loading="lazy" class="zoomable">
     </figure>
     <!-- <p class="has-text-centered is-size-6">
       Visual Comparisons on diverse deepface tasks. More results below on this page.
@@ -349,19 +349,19 @@
     </p>
     <div id="compare-carousel" class="carousel results-carousel">
       <div class="item">
-        <img src="static/images/compare-t0.jpg" alt="Face transfer visual comparison" loading="lazy">
+        <img src="static/images/compare-t0.jpg" alt="Face transfer visual comparison" loading="lazy" class="zoomable" data-zoom-group="compare">
         <p class="subtitle has-text-centered">Face transfer</p>
       </div>
       <div class="item">
-        <img src="static/images/compare-t1.jpg" alt="Hair transfer visual comparison" loading="lazy">
+        <img src="static/images/compare-t1.jpg" alt="Hair transfer visual comparison" loading="lazy" class="zoomable" data-zoom-group="compare">
         <p class="subtitle has-text-centered">Hair transfer</p>
       </div>
       <div class="item">
-        <img src="static/images/compare-t2.jpg" alt="Motion transfer visual comparison" loading="lazy">
+        <img src="static/images/compare-t2.jpg" alt="Motion transfer visual comparison" loading="lazy" class="zoomable" data-zoom-group="compare">
         <p class="subtitle has-text-centered">Motion transfer</p>
       </div>
       <div class="item">
-        <img src="static/images/compare-t3.jpg" alt="Head transfer visual comparison" loading="lazy">
+        <img src="static/images/compare-t3.jpg" alt="Head transfer visual comparison" loading="lazy" class="zoomable" data-zoom-group="compare">
         <p class="subtitle has-text-centered">Head transfer</p>
       </div>
     </div>
@@ -375,19 +375,19 @@
     </p>
     <div id="complex-carousel" class="carousel results-carousel">
       <div class="item">
-        <img src="static/images/complex-t0.jpg" alt="Face transfer under complex scenes" loading="lazy">
+        <img src="static/images/complex-t0.jpg" alt="Face transfer under complex scenes" loading="lazy" class="zoomable" data-zoom-group="complex">
         <p class="subtitle has-text-centered">Face transfer</p>
       </div>
       <div class="item">
-        <img src="static/images/complex-t1.jpg" alt="Hair transfer under complex scenes" loading="lazy">
+        <img src="static/images/complex-t1.jpg" alt="Hair transfer under complex scenes" loading="lazy" class="zoomable" data-zoom-group="complex">
         <p class="subtitle has-text-centered">Hair transfer</p>
       </div>
       <div class="item">
-        <img src="static/images/complex-t2.jpg" alt="Motion transfer under complex scenes" loading="lazy">
+        <img src="static/images/complex-t2.jpg" alt="Motion transfer under complex scenes" loading="lazy" class="zoomable" data-zoom-group="complex">
         <p class="subtitle has-text-centered">Motion transfer (face reenactment)</p>
       </div>
       <div class="item">
-        <img src="static/images/complex-t3.jpg" alt="Head transfer under complex scenes" loading="lazy">
+        <img src="static/images/complex-t3.jpg" alt="Head transfer under complex scenes" loading="lazy" class="zoomable" data-zoom-group="complex">
         <p class="subtitle has-text-centered">Head transfer</p>
       </div>
     </div>
@@ -434,6 +434,20 @@
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
+
+  <div id="image-lightbox" class="image-lightbox" aria-hidden="true">
+    <div class="image-lightbox__backdrop" data-lightbox-close></div>
+    <button class="image-lightbox__close" type="button" aria-label="Close image" data-lightbox-close>
+      <i class="fas fa-times"></i>
+    </button>
+    <button class="image-lightbox__nav image-lightbox__nav--prev" type="button" aria-label="Previous image">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="image-lightbox__nav image-lightbox__nav--next" type="button" aria-label="Next image">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    <img class="image-lightbox__img" alt="">
+  </div>
 
   </body>
   </html>
