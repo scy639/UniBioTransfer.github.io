@@ -4,7 +4,8 @@ window.HELP_IMPROVE_VIDEOJS = false;
 function toggleMoreWorks() {
     const dropdown = document.getElementById('moreWorksDropdown');
     const button = document.querySelector('.more-works-btn');
-    
+    if (!dropdown || !button) return;
+
     if (dropdown.classList.contains('show')) {
         dropdown.classList.remove('show');
         button.classList.remove('active');
@@ -20,7 +21,7 @@ document.addEventListener('click', function(event) {
     const dropdown = document.getElementById('moreWorksDropdown');
     const button = document.querySelector('.more-works-btn');
     
-    if (container && !container.contains(event.target)) {
+    if (container && dropdown && button && !container.contains(event.target)) {
         dropdown.classList.remove('show');
         button.classList.remove('active');
     }
@@ -31,8 +32,10 @@ document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         const dropdown = document.getElementById('moreWorksDropdown');
         const button = document.querySelector('.more-works-btn');
-        dropdown.classList.remove('show');
-        button.classList.remove('active');
+        if (dropdown && button) {
+            dropdown.classList.remove('show');
+            button.classList.remove('active');
+        }
     }
 });
 
@@ -40,6 +43,7 @@ document.addEventListener('keydown', function(event) {
 function copyBibTeX() {
     const bibtexElement = document.getElementById('bibtex-code');
     const button = document.querySelector('.copy-bibtex-btn');
+    if (!button) return;
     const copyText = button.querySelector('.copy-text');
     
     if (bibtexElement) {
@@ -175,6 +179,16 @@ $(document).ready(function() {
 
         document.addEventListener('keydown', function(event) {
             if (document.body.classList.contains('lightbox-open')) return;
+            if (!activeCarousel) {
+                var hovered = document.querySelector('.carousel:hover');
+                if (hovered) {
+                    instances.forEach(function(instance) {
+                        if (instance && instance.element === hovered) {
+                            activeCarousel = instance;
+                        }
+                    });
+                }
+            }
             if (!activeCarousel) return;
             if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
 
