@@ -133,6 +133,61 @@ $(document).ready(function() {
 
 	// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
+
+    // Bind wheel + arrow key controls to hovered carousel
+    (function setupCarouselInput(instances) {
+        if (!instances || instances.length === 0) return;
+
+        var activeCarousel = null;
+
+        instances.forEach(function(instance) {
+            if (!instance || !instance.element) return;
+
+            instance.element.addEventListener('mouseenter', function() {
+                activeCarousel = instance;
+            });
+            instance.element.addEventListener('mouseleave', function() {
+                if (activeCarousel === instance) {
+                    activeCarousel = null;
+                }
+            });
+
+            instance.element.addEventListener('wheel', function(event) {
+                // Only react when pointer is over the carousel
+                activeCarousel = instance;
+
+                if (event.ctrlKey) return;
+
+                var delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+                if (delta === 0) return;
+
+                if (typeof instance.next === 'function' && typeof instance.previous === 'function') {
+                    if (delta > 0) {
+                        instance.next();
+                    } else {
+                        instance.previous();
+                    }
+                }
+
+                event.preventDefault();
+            }, { passive: false });
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (!activeCarousel) return;
+            if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+
+            if (typeof activeCarousel.next === 'function' && typeof activeCarousel.previous === 'function') {
+                if (event.key === 'ArrowRight') {
+                    activeCarousel.next();
+                } else {
+                    activeCarousel.previous();
+                }
+            }
+
+            event.preventDefault();
+        });
+    })(carousels);
 	
     bulmaSlider.attach();
     

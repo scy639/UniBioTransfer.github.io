@@ -7,6 +7,7 @@
   --text-primary: #1e293b;
   --text-secondary: #64748b;
   --text-light: #94a3b8;
+  --text-light2:#8493a8;
   --background-primary: #ffffff;
   --background-secondary: #f8fafc;
   --background-accent: #f1f5f9;
@@ -293,15 +294,15 @@ body {
 /* Carousel Navigation Buttons (bulma-carousel) */
 .results-carousel .slider-navigation-previous,
 .results-carousel .slider-navigation-next {
-  background: rgba(30, 41, 59, 0.92) !important;
+  background: rgba(30, 41, 59, 0.5) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   color: #ffffff !important;
-  width: 34px !important;
-  height: 96px !important;
+  width: 40px !important;
+  height: 370px !important;
   border-radius: 999px !important;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
-  top: 45% !important;
+  top: 48% !important;
   margin-top: 0 !important;
   transform: translateY(-50%) !important;
 }
@@ -348,6 +349,10 @@ body {
   transform: none;
 }
 
+.eql-cntrb-institution { 
+  font-size: 0.975rem;
+  color: var(--text-light2);
+}
 .eql-cntrb { 
   font-size: 0.875rem;
   color: var(--text-light);
