@@ -266,13 +266,13 @@ body {
   background: var(--background-primary);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
-  transition: var(--transition);
+  transition: none;
   border: 1px solid var(--border-color);
 }
 
 .results-carousel .item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: none;
+  box-shadow: var(--shadow-md);
 }
 
 .results-carousel .item img,
@@ -290,16 +290,62 @@ body {
   font-weight: 500;
 }
 
+/* Carousel Navigation Buttons (bulma-carousel) */
+.results-carousel .slider-navigation-previous,
+.results-carousel .slider-navigation-next {
+  background: rgba(30, 41, 59, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  width: 34px !important;
+  height: 96px !important;
+  border-radius: 999px !important;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  top: 45% !important;
+  margin-top: 0 !important;
+  transform: translateY(-50%) !important;
+}
+
+.results-carousel .slider-navigation-previous:hover,
+.results-carousel .slider-navigation-next:hover {
+  background: rgba(37, 99, 235, 0.95) !important;
+  transform: translateY(calc(-50% - 2px)) !important;
+}
+
+.results-carousel .slider-navigation-previous svg,
+.results-carousel .slider-navigation-next svg {
+  fill: #ffffff !important;
+}
+
+/* Caption Variants */
+.caption-variants {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.caption-variants p {
+  margin: 0.25rem 0;
+}
+
+.caption-variants .caption-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-right: 0.35rem;
+}
+
 /* Pagination and Misc Improvements */
 .slider-pagination .slider-page {
-  background: var(--primary-color);
+  background: #1f2937 !important;
   border-radius: 50%;
-  transition: var(--transition);
+  margin: 0 10px !important;
+  transition: none;
 }
 
 .slider-pagination .slider-page.is-active {
-  background: var(--primary-hover);
-  transform: scale(1.2);
+  background: #111827 !important;
+  transform: none;
 }
 
 .eql-cntrb { 

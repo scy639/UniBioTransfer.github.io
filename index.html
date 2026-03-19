@@ -251,9 +251,11 @@
       <figure class="image">
         <img src="static/images/teaser_V10_fix.jpg" alt="UniBioTransfer teaser figure" loading="lazy">
       </figure>
-      <h2 class="subtitle has-text-centered">
-        UniBioTransfer is the first unified framework capable of handling all four complicated and typical high-level and mid-level deepface generation tasks within the same model, while also generalizing efficiently to novel low-level and cross-level/intra-level compositional transfer tasks by conducting minimal fine-tuning with &lt;20% data and &lt;10% training cost. (Blue border: target image, orange border: reference images, green borders: transferred results.)
-      </h2>
+      <p class="has-text-centered">
+      The first unified framework capable of handling all four complicated and typical high-level and mid-level deepface generation tasks within the same model, while also generalizing efficiently to novel low-level and cross-level/intra-level compositional transfer tasks via minimal fine-tuning.
+      <br>
+      (<span style="color: rgb(68, 114, 196);">Blue border</span>: target image, <span style="color: rgb(237, 125, 49);">orange border</span>: reference images, <span style="color: rgb(113, 173, 72);">green borders</span>: transferred results)
+      </p>
     </div>
   </div>
 </section>
@@ -268,7 +270,7 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            Deepface generation has traditionally followed a task-driven paradigm, where distinct tasks (e.g., face transfer and hair transfer) are addressed by task-specific models. Nevertheless, this single-task setting severely limits model generalization and scalability. A unified model capable of solving multiple deepface generation tasks in a single pass represents a promising and practical direction, yet remains challenging due to data scarcity and cross-task conflicts arising from heterogeneous attribute transformations. To this end, we propose UniBioTransfer, the first unified framework capable of handling both conventional deepface tasks (e.g., face transfer and face reenactment) and shape-varying transformations (e.g., hair transfer and head transfer). Besides, UniBioTransfer naturally generalizes to unseen tasks, like lip, eye, and glasses transfer, with minimal fine-tuning. Generally, UniBioTransfer addresses data insufficiency in multi-task generation through a unified data construction strategy, including a swapping-based corruption mechanism designed for spatially dynamic attributes like hair. It further mitigates cross-task interference via an innovative BioMoE, a mixture-of-experts based model coupled with a novel two-stage training strategy that effectively disentangles task-specific knowledge. Extensive experiments demonstrate the effectiveness, generalization, and scalability of UniBioTransfer, outperforming both existing unified models and task-specific methods across a wide range of deepface generation tasks. We will release our code upon acceptance.
+            Deepface generation has traditionally followed a task-driven paradigm, where distinct tasks (e.g., face transfer and hair transfer) are addressed by task-specific models. Nevertheless, this single-task setting severely limits model generalization and scalability. A unified model capable of solving multiple deepface generation tasks in a single pass represents a promising and practical direction, yet remains challenging due to data scarcity and cross-task conflicts arising from heterogeneous attribute transformations. To this end, we propose UniBioTransfer, the first unified framework capable of handling both conventional deepface tasks (e.g., face transfer and face reenactment) and shape-varying transformations (e.g., hair transfer and head transfer). Besides, UniBioTransfer naturally generalizes to unseen tasks, like lip, eye, and glasses transfer, with minimal fine-tuning. Generally, UniBioTransfer addresses data insufficiency in multi-task generation through a unified data construction strategy, including a swapping-based corruption mechanism designed for spatially dynamic attributes like hair. It further mitigates cross-task interference via an innovative BioMoE, a mixture-of-experts based model coupled with a novel two-stage training strategy that effectively disentangles task-specific knowledge. Extensive experiments demonstrate the effectiveness, generalization, and scalability of UniBioTransfer, outperforming both existing unified models and task-specific methods across a wide range of deepface generation tasks. Our code will be released soon.
           </p>
         </div>
       </div>
@@ -294,7 +296,7 @@
 <!-- Problem Definition -->
 <section class="section is-light">
   <div class="container is-max-desktop">
-    <h5 class="title is-3">Problem Definition</h5>
+    <h2 class="title is-3">Problem Definition</h2>
     <div class="content">
       <p>
         We formulate various deepface tasks as swapping a set of attributes X (e.g., face identity, hair, pose, expression, skin tone) from a reference image I<sub>ref</sub> onto a target image I<sub>tgt</sub>, while preserving the remaining attributes Y from I<sub>tgt</sub>. The desired output is I<sub>out</sub> = X<sub>ref</sub> &cup; Y<sub>tgt</sub>.
@@ -308,14 +310,19 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">Method</h2>
     <figure class="image">
-      <img src="static/images/fig2_mask_vs_swap.png" alt="Limitations of traditional mask-based strategy" loading="lazy">
+      <img src="static/images/fig2_mask_vs_swap.png" alt="Limitations of traditional mask-based strategy" loading="lazy" style="width: 75%; height: auto; display: block; margin: 0 auto;">
     </figure>
-    <p class="has-text-centered is-size-6">Limitations of traditional mask-based strategy.</p>
+    <div class="caption-variants has-text-centered">
+      <p>Limitations of traditional mask-based strategy for attributes with significant structural changes (e.g., hair transfer). Masking exposes ground-truth
+        geometry (a-top), so models trained on such pairs only learn to inpaint the masked region at inference (a-bottom), instead of performing true shape
+        transfer. Our swapping-based strategy removes silhouette information in the target (b-top), forcing the network to transfer shape from the reference at
+        inference (b-bottom).</p>
+    </div>
 
     <figure class="image" style="margin-top: 1.5rem;">
-      <img src="static/images/dataCorruption-v3.png" alt="Unified data corruption strategy" loading="lazy">
+      <img src="static/images/dataCorruption-v3.png" alt="Unified data corruption strategy" loading="lazy" style="width: 55%; height: auto; display: block; margin: 0 auto;">
     </figure>
-    <p class="has-text-centered is-size-6">
+    <p class="caption-variants has-text-centered">
       Our unified data corruption strategy for different attribute types. (a) Relative-static attributes: the target is constructed by simple masking or data augmentation of the GT image. (b) Spatially-dynamic attributes: we utilize our swapping-based corruption strategy, which employs an off-the-shelf generative model to replace specific attributes in the GT with arbitrary novel variations, preventing shape leakage from mask boundaries.
     </p>
 
@@ -327,9 +334,9 @@
     </p>
 
     <figure class="image" style="margin-top: 1.5rem;">
-      <img src="static/images/fig6_token_select.jpg" alt="Structure-aware routing scores" loading="lazy">
+      <img src="static/images/fig6_token_select.jpg" alt="Structure-aware routing scores" loading="lazy" style="width: 80%; height: auto; display: block; margin: 0 auto;">
     </figure>
-    <p class="has-text-centered is-size-6">Structure-aware routing scores after softmax and before top-K selection.</p>
+    <p class="caption-variants has-text-centered">Structure-aware routing scores after softmax and before top-K selection, visualizing how experts specialize to semantically structured regions.</p>
   </div>
 </section>
 
@@ -337,45 +344,51 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Additional Visual Results</h2>
-    <!-- <p class="has-text-centered is-size-6">Press left/right to switch images.</p> -->
+    <p class="has-text-centered is-size-7" style="color: var(--text-light);">
+      All inputs are from the FFHQ dataset.
+    </p>
     <div id="compare-carousel" class="carousel results-carousel">
       <div class="item">
         <img src="static/images/compare-t0.jpg" alt="Face transfer visual comparison" loading="lazy">
-        <p class="subtitle has-text-centered">Face transfer visual comparison.</p>
+        <p class="subtitle has-text-centered">Face transfer</p>
       </div>
       <div class="item">
         <img src="static/images/compare-t1.jpg" alt="Hair transfer visual comparison" loading="lazy">
-        <p class="subtitle has-text-centered">Hair transfer visual comparison.</p>
+        <p class="subtitle has-text-centered">Hair transfer</p>
       </div>
       <div class="item">
         <img src="static/images/compare-t2.jpg" alt="Motion transfer visual comparison" loading="lazy">
-        <p class="subtitle has-text-centered">Motion transfer visual comparison.</p>
+        <p class="subtitle has-text-centered">Motion transfer</p>
       </div>
       <div class="item">
         <img src="static/images/compare-t3.jpg" alt="Head transfer visual comparison" loading="lazy">
-        <p class="subtitle has-text-centered">Head transfer visual comparison.</p>
+        <p class="subtitle has-text-centered">Head transfer</p>
       </div>
     </div>
 
     <hr>
     <h3 class="title is-4">Complex Scenes (Extreme Poses, Expressions, Occlusions)</h3>
-    <!-- <p class="has-text-centered is-size-6">Press left/right to switch images.</p> -->
+    <p class="has-text-centered is-size-7" style="color: var(--text-light);">
+      We manually select occlusion images from FFHQ dataset, exaggerated expressions from AffectNet dataset, and extreme poses from EFHQ dataset. 
+      <br>
+      In each case, either the target or the reference image features a complex scene, while the other is a normal image from the FFHQ test set.
+    </p>
     <div id="complex-carousel" class="carousel results-carousel">
       <div class="item">
         <img src="static/images/complex-t0.jpg" alt="Face transfer under complex scenes" loading="lazy">
-        <p class="subtitle has-text-centered">Face transfer under complex scenes.</p>
+        <p class="subtitle has-text-centered">Face transfer</p>
       </div>
       <div class="item">
         <img src="static/images/complex-t1.jpg" alt="Hair transfer under complex scenes" loading="lazy">
-        <p class="subtitle has-text-centered">Hair transfer under complex scenes.</p>
+        <p class="subtitle has-text-centered">Hair transfer</p>
       </div>
       <div class="item">
         <img src="static/images/complex-t2.jpg" alt="Motion transfer under complex scenes" loading="lazy">
-        <p class="subtitle has-text-centered">Motion transfer (face reenactment) under complex scenes.</p>
+        <p class="subtitle has-text-centered">Motion transfer (face reenactment)</p>
       </div>
       <div class="item">
         <img src="static/images/complex-t3.jpg" alt="Head transfer under complex scenes" loading="lazy">
-        <p class="subtitle has-text-centered">Head transfer under complex scenes.</p>
+        <p class="subtitle has-text-centered">Head transfer</p>
       </div>
     </div>
   </div>
