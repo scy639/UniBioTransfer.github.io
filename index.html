@@ -186,54 +186,6 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
   <section class="hero">
     <div class="hero-body">
@@ -243,18 +195,22 @@
             <!-- TODO: Replace with your paper title -->
             <h1 class="title is-1 publication-title">UniBioTransfer: A Unified Framework for Multiple Biometrics Transfer</h1>
             <div class="is-size-5 publication-authors">
-              <span class="author-block">Caiyi Sun<sup>*</sup>,</span>
-              <span class="author-block">Yujing Sun<sup>*</sup>,</span>
-              <span class="author-block">Xiangyu Li,</span>
-              <span class="author-block">Yuhang Zheng,</span>
-              <span class="author-block">Yiming Ren,</span>
-              <span class="author-block">Jiamin Wang,</span>
-              <span class="author-block">Yuexin Ma,</span>
-              <span class="author-block">Siu-Ming Yiu<sup>&dagger;</sup></span>
+              <span class="author-block">Caiyi Sun<sup>1*</sup>,</span>
+              <span class="author-block"><a href="https://yujingsun.github.io/" target="_blank">Yujing Sun</a><sup>2*</sup>,</span>
+              <span class="author-block">Xiangyu Li<sup>2</sup>,</span>
+              <span class="author-block">Yuhang Zheng<sup>2</sup>,</span>
+              <span class="author-block"><a href="https://ren-ym.github.io/" target="_blank">Yiming Ren</a><sup>3,2</sup>,</span>
+              <span class="author-block">Jiamin Wang<sup>3</sup>,</span>
+              <span class="author-block"><a href="https://yuexinma.me/index.html" target="_blank">Yuexin Ma</a><sup>3</sup>,</span>
+              <span class="author-block"><a href="https://www.cs.hku.hk/index.php/people/academic-staff/smyiu" target="_blank">Siu-Ming Yiu</a><sup>1&dagger;</sup></span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block">ShanghaiTech University &middot; The University of Hong Kong &middot; Digital Trust Centre, Nanyang Technological University</span>
+              <span class="author-block">
+                <sup>1</sup>The University of Hong Kong &middot;
+                <sup>2</sup>Digital Trust Centre, Nanyang Technological University &middot;
+                <sup>3</sup>ShanghaiTech University
+              </span>
               <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution &middot; <sup>&dagger;</sup>Corresponding Author</small></span>
             </div>
 
@@ -266,7 +222,7 @@
                         <span class="icon">
                           <i class="fab fa-github"></i>
                         </span>
-                        <span>Code</span>
+                        <span>Code & Weight (coming soon)</span>
                       </a>
                     </span>
 
@@ -293,7 +249,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <figure class="image">
-        <img src="static/images/teaser_v10_fix.png" alt="UniBioTransfer teaser figure" loading="lazy">
+        <img src="static/images/teaser_V10_fix.jpg" alt="UniBioTransfer teaser figure" loading="lazy">
       </figure>
       <h2 class="subtitle has-text-centered">
         UniBioTransfer is the first unified framework capable of handling all four complicated and typical high-level and mid-level deepface generation tasks within the same model, while also generalizing efficiently to novel low-level and cross-level/intra-level compositional transfer tasks by conducting minimal fine-tuning with &lt;20% data and &lt;10% training cost. (Blue border: target image, orange border: reference images, green borders: transferred results.)
@@ -327,19 +283,36 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">Visual Results</h2>
     <figure class="image">
-      <img src="static/images/mainComp-v1.png" alt="Visual comparisons on diverse deepface tasks" loading="lazy">
+      <img src="static/images/mainComp.jpg" alt="Visual comparisons on diverse deepface tasks" loading="lazy">
     </figure>
-    <p class="has-text-centered is-size-6">
-      Visual Comparisons on diverse deepface tasks. More results in Suppl.
-    </p>
+    <!-- <p class="has-text-centered is-size-6">
+      Visual Comparisons on diverse deepface tasks. More results below on this page.
+    </p> -->
+  </div>
+</section>
+
+<!-- Problem Definition -->
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <h5 class="title is-3">Problem Definition</h5>
+    <div class="content">
+      <p>
+        We formulate various deepface tasks as swapping a set of attributes X (e.g., face identity, hair, pose, expression, skin tone) from a reference image I<sub>ref</sub> onto a target image I<sub>tgt</sub>, while preserving the remaining attributes Y from I<sub>tgt</sub>. The desired output is I<sub>out</sub> = X<sub>ref</sub> &cup; Y<sub>tgt</sub>.
+      </p>
+    </div>
   </div>
 </section>
 
 <!-- Method -->
 <section class="section is-light">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Method (Brief)</h2>
+    <h2 class="title is-3">Method</h2>
     <figure class="image">
+      <img src="static/images/fig2_mask_vs_swap.png" alt="Limitations of traditional mask-based strategy" loading="lazy">
+    </figure>
+    <p class="has-text-centered is-size-6">Limitations of traditional mask-based strategy.</p>
+
+    <figure class="image" style="margin-top: 1.5rem;">
       <img src="static/images/dataCorruption-v3.png" alt="Unified data corruption strategy" loading="lazy">
     </figure>
     <p class="has-text-centered is-size-6">
@@ -352,22 +325,59 @@
     <p class="has-text-centered is-size-6">
       UniBioTransfer architecture overview. (a) Overall framework. (b) We introduce an MoE-enhanced Feed Forward Network (FFN). (c) Expert selection is guided by a Structure-Aware Router. (d) The entire system is optimized using a two-stage training strategy designed to stabilize routing and promote expert specialization.
     </p>
+
+    <figure class="image" style="margin-top: 1.5rem;">
+      <img src="static/images/fig6_token_select.jpg" alt="Structure-aware routing scores" loading="lazy">
+    </figure>
+    <p class="has-text-centered is-size-6">Structure-aware routing scores after softmax and before top-K selection.</p>
   </div>
 </section>
 
-<!-- More Visualizations (Supplementary) -->
+<!-- More Visualizations -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">More Visualizations (Supplementary)</h2>
-    <figure class="image">
-      <img src="static/images/compare-t0.png" alt="Face transfer visual comparison" loading="lazy">
-    </figure>
-    <p class="has-text-centered is-size-6">Face transfer visual comparison.</p>
+    <h2 class="title is-3">Additional Visual Results</h2>
+    <!-- <p class="has-text-centered is-size-6">Press left/right to switch images.</p> -->
+    <div id="compare-carousel" class="carousel results-carousel">
+      <div class="item">
+        <img src="static/images/compare-t0.jpg" alt="Face transfer visual comparison" loading="lazy">
+        <p class="subtitle has-text-centered">Face transfer visual comparison.</p>
+      </div>
+      <div class="item">
+        <img src="static/images/compare-t1.jpg" alt="Hair transfer visual comparison" loading="lazy">
+        <p class="subtitle has-text-centered">Hair transfer visual comparison.</p>
+      </div>
+      <div class="item">
+        <img src="static/images/compare-t2.jpg" alt="Motion transfer visual comparison" loading="lazy">
+        <p class="subtitle has-text-centered">Motion transfer visual comparison.</p>
+      </div>
+      <div class="item">
+        <img src="static/images/compare-t3.jpg" alt="Head transfer visual comparison" loading="lazy">
+        <p class="subtitle has-text-centered">Head transfer visual comparison.</p>
+      </div>
+    </div>
 
-    <figure class="image" style="margin-top: 1.5rem;">
-      <img src="static/images/compare-t1.png" alt="Hair transfer visual comparison" loading="lazy">
-    </figure>
-    <p class="has-text-centered is-size-6">Hair transfer visual comparison.</p>
+    <hr>
+    <h3 class="title is-4">Complex Scenes (Extreme Poses, Expressions, Occlusions)</h3>
+    <!-- <p class="has-text-centered is-size-6">Press left/right to switch images.</p> -->
+    <div id="complex-carousel" class="carousel results-carousel">
+      <div class="item">
+        <img src="static/images/complex-t0.jpg" alt="Face transfer under complex scenes" loading="lazy">
+        <p class="subtitle has-text-centered">Face transfer under complex scenes.</p>
+      </div>
+      <div class="item">
+        <img src="static/images/complex-t1.jpg" alt="Hair transfer under complex scenes" loading="lazy">
+        <p class="subtitle has-text-centered">Hair transfer under complex scenes.</p>
+      </div>
+      <div class="item">
+        <img src="static/images/complex-t2.jpg" alt="Motion transfer under complex scenes" loading="lazy">
+        <p class="subtitle has-text-centered">Motion transfer (face reenactment) under complex scenes.</p>
+      </div>
+      <div class="item">
+        <img src="static/images/complex-t3.jpg" alt="Head transfer under complex scenes" loading="lazy">
+        <p class="subtitle has-text-centered">Head transfer under complex scenes.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -397,7 +407,6 @@
 
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
